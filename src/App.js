@@ -62,7 +62,7 @@ function App() {
     <div className="App">
       <Header />
       <main className="contenu">
-        <p>Vous avez effectué {nbRecherches} recherche{nbRecherches > 1 ? 's' : ''}</p>
+        <p>Vous avez effectué {nbRecherches} recherche{nbRecherches > 1 ? 's' : ''}</p>s
         <Recherche valeur={recherche} onChange={(valeur) => {
         setRecherche(valeur);
         setNbRecherches(nbRecherches + 1); }}  />

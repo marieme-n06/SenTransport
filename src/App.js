@@ -14,7 +14,9 @@ function App() {
   const [chargement, setChargement] = useState(true);
   const [erreur, setErreur] = useState(null);
 
-useEffect(() => {
+const chargerLignes = () => {
+  setChargement(true);
+  setErreur(null);
   fetch("http://localhost:5000/lignes")
     .then(response => {
       if (!response.ok) {
@@ -30,6 +32,9 @@ useEffect(() => {
       setErreur(error.message);
       setChargement(false);
     });
+};  
+useEffect(() => {
+  chargerLignes();
 }, []);
 
   const lignesFiltrees = lignes.filter(l =>
@@ -39,9 +44,11 @@ useEffect(() => {
   );
   function handleClickLigne(ligne) {
   if (ligneSelectionnee && ligneSelectionnee.id === ligne.id) {
-    setLigneSelectionnee(null); // re-clic = désélectionner
+    setLigneSelectionnee(null);
   } else {
-    setLigneSelectionnee(ligne); // premier clic = sélectionner
+    fetch(`http://localhost:5000/lignes/${ligne.id}`)
+      .then(response => response.json())
+      .then(data => setLigneSelectionnee(data));
   }
 }
 if (chargement) {
@@ -74,6 +81,7 @@ if (erreur) {
     <div className="App">
       <Header />
       <main className="contenu">
+        <button onClick={chargerLignes}>Recharger</button>
         <p>Vous avez effectué {nbRecherches} recherche{nbRecherches > 1 ? 's' : ''}</p>s
         <Recherche valeur={recherche} onChange={(valeur) => {
         setRecherche(valeur);

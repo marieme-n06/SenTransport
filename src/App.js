@@ -5,6 +5,7 @@ import Recherche from './Recherche';
 import LigneBus from './LigneBus';
 import Footer from './Footer';
 import DetailLigne from './DetailLigne';
+import Carte from './Carte';
 
 function App() {
   const [recherche, setRecherche] = useState("");
@@ -105,6 +106,7 @@ if (erreur) {
         />
 ))}
         {ligneSelectionnee && <DetailLigne ligne={ligneSelectionnee} />}
+        <Carte/>
       </main>
       <Footer />
     </div>

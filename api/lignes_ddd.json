@@ -44,22 +44,6 @@
     "arrets": 11,
     "listeArrets": ["Yoff Village", "Aeroport LSS",
       "Parcelles U17", "Grand Yoff", "HLM", "Sandaga"]
-  },
-  {
-  "id": 7, "numero": "54",
-  "depart": "Yarakh",
-  "arrivee": "Claudel",
-  "arrets": 15,
-  "listeArrets": ["Campa", "Hann bel-air", "Colobane",
-    "Point E", "Grande porte ucad", "Claudel"]
-},
-{
-  "id": 8, "numero": "48",
-  "depart": "Almadies",
-  "arrivee": "Marché tilène",
-  "arrets": 10,
-  "listeArrets": ["Almadies", "ngor", "ouakam",
-    "Mermoz", "poste fann", "sahm", "Marche tilene"]
-}
+  }
 
 ]
